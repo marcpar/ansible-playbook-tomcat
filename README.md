@@ -17,3 +17,8 @@ ssh-copy-id username@server
 ## Usage
 
 CI jenkins must be setup to put the ssh-keys 
+
+```bash
+ansible-playbook -i hosts site.yml
+
+```

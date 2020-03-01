@@ -10,8 +10,6 @@ pipeline {
           }
         }
         
-        
-        
           stage('Ansible Init') {
             steps {
                 script {
@@ -26,14 +24,13 @@ pipeline {
         
         
         
-        stage('Ansible Deploy') {
+        stage('Ansible apply') {
              
             steps {
-                 
-              dir('dev/ansible')
-              {
-               
-               sh 'ansible all -m ping -i hosts'
+              dir('${WORKSPACE}'){ 
+
+                echo 'Deploying to test'   
+                bash 'ansible-playbook -i hosts site.yml'
                
             }
             }
